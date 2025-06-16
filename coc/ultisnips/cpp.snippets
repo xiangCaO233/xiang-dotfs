@@ -1,0 +1,224 @@
+# A valid snippet should starts with:
+#
+#		snippet trigger_word [ "description" [ options ] ]
+#
+# and end with:
+#
+#		endsnippet
+#
+# Snippet options:
+#
+#		b - Beginning of line.
+#		i - In-word expansion.
+#		w - Word boundary.
+#		r - Regular expression
+#		e - Custom context snippet
+#		A - Snippet will be triggered automatically, when condition matches.
+#
+# Basic example:
+#
+#		snippet emitter "emitter properties" b
+#		private readonly ${1} = new Emitter<$2>()
+#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
+#		endsnippet
+#
+# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+
+snippet def "定义头文件保护宏"
+#ifndef ${1:DEFINATION}
+#define $1
+$0
+#endif // $1 
+endsnippet
+
+snippet cm "comments"
+// $1
+endsnippet
+
+snippet cmm "comments"
+/*
+* $1
+*/
+endsnippet
+
+snippet vec "vector"
+std::vector<${1:class}>
+endsnippet
+
+snippet vec2d "二维数组"
+std::vector<std::vector<${1:class}>>
+endsnippet
+
+snippet vec+ "new vector"
+auto ${1:var} = std::vector<${2:class}>(${3:iniarg});
+endsnippet
+
+snippet vec2d+ "new 二维数组"
+auto ${1:var} = std::vector<std::vector<${2:class}>>(${3:iniarg1},std::vector<$2>(${4:iniarg2}));
+endsnippet
+
+snippet shad "shared_ptr"
+std::shared_ptr<${1:class}>
+endsnippet
+
+snippet make "make_share"
+auto ${1:var} = std::make_shared<${2:class}>(${3:args});
+endsnippet
+
+snippet ini "初始化main.cpp"
+#include <iostream>
+
+int main(int argc, char *argv[]) {
+	std::cout << "$1" << std::endl;
+	return 0;
+}
+
+endsnippet
+
+snippet main "面函数" 
+int main(int argc, char *argv[]) {
+	$1
+	return 0;
+}
+endsnippet
+
+snippet todo "创建todo"
+// TODO(${1:user} `!v strftime("%Y-%m-%d")`): ${2:description}
+endsnippet
+
+snippet cout "输出内容"
+std::cout << $1 << std::endl;
+endsnippet
+
+snippet fori "i循环" 
+for(int i = 0; i < $1;++i){
+	$2
+}
+endsnippet
+
+snippet forj "j循环" 
+for(int j = 0; j < $1;++j){
+	$2
+}
+endsnippet
+
+snippet fork "k循环" 
+for(int k = 0; k < $1;++k){
+	$2
+}
+endsnippet
+
+snippet fori- "i逆循环"
+for(int i = $1 ; i > 0 ; --i){
+	$2
+}
+endsnippet
+
+snippet forj- "j逆循环" 
+for(int j = $1 ; j > 0;--j){
+	$2
+}
+endsnippet
+
+snippet fork- "k逆循环" 
+for(int k = $1 ; k > 0;--k){
+	$2
+}
+endsnippet
+
+snippet fore "迭代循环" 
+for(${2:type} ${3:var}: ${1:list}){
+	$4
+}
+endsnippet
+
+snippet while "while循环" 
+while($1){
+	$2
+}
+endsnippet
+
+snippet whilei "while-i循环"
+int i = 0;
+while($1){
+	$2
+	i++;
+}
+endsnippet
+
+snippet if "判断"
+if($1){
+	$2
+}
+endsnippet
+
+snippet el "else" 
+else{
+	$1
+}
+endsnippet
+
+snippet eli "else-if" 
+else if($1){
+	$2
+}
+endsnippet
+
+snippet throw "抛异常"
+throw std::runtime_error("$1");
+endsnippet
+
+snippet struct "定义结构体"
+struct ${1:structname} {
+	$2
+};
+endsnippet
+
+snippet class "定义类"
+class ${1:classname} {
+
+  public:
+	// 构造$1
+	$1($2);
+	// 析构$1
+	virtual ~$1();
+
+};
+endsnippet
+
+snippet class: "定义派生类"
+class ${1:classname} : public ${2:parentclass} {
+
+  public:
+	// 构造$1
+	$1();
+	// 析构$1
+	~$1() override;
+
+protected:
+	$3
+};
+endsnippet
+
+snippet class:: "补全class函数" 
+${1:classname}::$1(){
+	
+}
+
+$1::~$1(){
+	
+}
+endsnippet
+
+snippet intf "定义int返回类型函数"
+int $1($2){
+	$3
+	return 0;
+}
+endsnippet
+
+snippet voidf "定义void类型函数"
+void $1($2){
+	$3
+}
+endsnippet

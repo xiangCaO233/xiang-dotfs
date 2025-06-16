@@ -1,0 +1,124 @@
+# A valid snippet should starts with:
+#
+#		snippet trigger_word [ "description" [ options ] ]
+#
+# and end with:
+#
+#		endsnippet
+#
+# Snippet options:
+#
+#		b - Beginning of line.
+#		i - In-word expansion.
+#		w - Word boundary.
+#		r - Regular expression
+#		e - Custom context snippet
+#		A - Snippet will be triggered automatically, when condition matches.
+#
+# Basic example:
+#
+#		snippet emitter "emitter properties" b
+#		private readonly ${1} = new Emitter<$2>()
+#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
+#		endsnippet
+#
+# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+
+snippet cmake++ "初始化cmake-c++项目" 
+cmake_minimum_required(VERSION 3.31)
+
+project($1)
+
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_BUILD_TYPE Debug)
+set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
+
+# set(LIB_SOURCES )
+set(SOURCES src/main.cpp)
+
+# add_library(lib$1 STATIC ${LIB_SOURCES})
+
+# add_library($1 SHARED ${LIB_SOURCES})
+
+add_executable(test$1 ${SOURCES})
+
+# target_link_libraries(test$1 PUBLIC )
+
+# target_link_libraries($1-dev PUBLIC )
+
+# target_link_libraries($1 PUBLIC )
+endsnippet
+
+snippet cmakeqt "初始化qt项目"
+cmake_minimum_required(VERSION 3.31)
+
+project($1)
+
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_BUILD_TYPE Debug)
+set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
+
+set(SOURCES src/main.cpp)
+find_package(Qt COMPONENTS Core Gui Widgets REQUIRED)
+
+add_executable(test$1 SOURCES)
+
+target_link_libraries(test$1 Qt::Core Qt::Gui Qt::Widgets)
+endsnippet
+
+snippet cmakeqtgl "初始化qt-opengl项目"
+cmake_minimum_required(VERSION 3.31)
+
+project($1)
+
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_BUILD_TYPE Debug)
+set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
+
+set(SOURCES src/main.cpp)
+find_package(Qt COMPONENTS Core Gui Widgets OpenGL OpenGLWidgets REQUIRED)
+
+add_executable(test$1 ${SOURCES})
+
+target_link_libraries(test$1 Qt::Core Qt::Gui Qt::Widgets Qt6::OpenGL Qt6::OpenGLWidgets)
+endsnippet
+
+snippet cmakegl "初始化opengl项目"
+cmake_minimum_required(VERSION 3.31)
+
+project($1)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_BUILD_TYPE Debug)
+set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
+
+# set(LIB_SOURCES )
+set(SOURCES src/main.cpp)
+
+find_package(glfw3 REQUIRED)
+find_package(GLEW REQUIRED)
+find_package(OpenGL REQUIRED)
+find_package(GLM REQUIRED)
+
+# add_library(lib$1 STATIC ${LIB_SOURCES})
+
+# add_library($1 SHARED ${LIB_SOURCES})
+
+add_executable(test$1 SOURCES)
+
+target_link_libraries(test$1 glfw GLEW::GLEW OpenGL::GL glm::glm)
+
+# target_link_libraries($1-dev PUBLIC )
+
+# target_link_libraries($1 PUBLIC )
+endsnippet
+
+snippet findqt "findqt库"
+find_package(Qt COMPONENTS Core Gui Widgets $1 REQUIRED)
+endsnippet
