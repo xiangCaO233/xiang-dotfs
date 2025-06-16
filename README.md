@@ -52,7 +52,7 @@
 1.  **克隆仓库:**
 
     ```bash
-    git clone <你的仓库URL> ~/my-dotfiles
+    git clone https://github.com/xiangCaO233/xiang-dotfs.git ~/my-dotfiles
     cd ~/my-dotfiles
     ```
 
@@ -65,7 +65,7 @@
     -   创建从本仓库中的文件到你用户主目录中对应位置的符号链接。
 
     ```bash
-    chmod +x setupcfg.sh updatefiles.sh # 首次运行时确保脚本有执行权限
+    chmod +x setupcfg.sh # 首次运行时确保脚本有执行权限
     ./setupcfg.sh
     ```
 
