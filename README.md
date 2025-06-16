@@ -1,10 +1,10 @@
-# 我的 Dotfiles 配置
+# Dotfiles 配置
 
 仓库包含在 GNU/Linux 和 macOS 系统上使用的配置文件 (dotfiles)。仓库内提供了一个设置脚本，可以自动将这些配置文件符号链接（软链接）到用户主目录下的正确位置。
 
 ## 托管的配置
 
-以下配置文件由本仓库管理。所列路径均为相对于你的用户主目录 (`~`) 的路径。
+以下配置文件由仓库管理。所列路径均为相对于用户主目录 (`~`) 的路径。
 
 ### 直接位于主目录 (`~/`) 下的文件/目录
 
@@ -29,34 +29,32 @@
 
 ## 仓库结构
 
-上述所有配置文件和目录都存放在本仓库的根目录下，并保持它们在 `~` 或 `~/.config/` 下应有的相对路径。
+上述所有配置文件和目录都存放在仓库的根目录下，并保持它们在 `~` 或 `~/.config/` 下应有的相对路径。
 
 例如:
 
--   你系统中的 `~/.vimrc` 对应本仓库中的 `.vimrc` 文件。
--   你系统中的 `~/.config/fish/config.fish` 对应本仓库中的 `fish/config.fish` 文件。
+-   系统中的 `~/.vimrc` 对应本仓库中的 `.vimrc` 文件。
+-   系统中的 `~/.config/fish/config.fish` 对应本仓库中的 `fish/config.fish` 文件。
 
 ## 安装与设置
 
-仓库中提供了一个 `setupcfg.sh` 脚本，用于自动将这些文件和目录链接到你用户主目录中的正确位置。这使得在克隆本仓库后，可以一键完成配置。
+仓库中提供了一个 `setupcfg.sh` 脚本，用于自动将这些文件和目录链接到用户主目录中的正确位置。这使得在克隆本仓库后，可以一键完成配置。
 
 ### 条件
 
 -   **GNU/Linux**: 需要标准的命令行工具 (bash, ln, mv, mkdir, date, readlink)。
 -   **macOS**:
     -   需要标准的命令行工具。
-    -   **强烈建议**通过 Homebrew 安装 `coreutils` (`brew install coreutils`) 以获得完全兼容性，因为脚本可能会依赖 GNU `readlink` 的特性 (特别是 `greadlink -f`)。脚本在 macOS 上会尝试优先使用 `greadlink` (如果已安装)。
+    -   建议\*\*通过 Homebrew 安装 `coreutils` (`brew install coreutils`) 以获得完全兼容性，因为脚本可能会依赖 GNU `readlink` 的特性 (特别是 `greadlink -f`)。脚本在 macOS 上会尝试优先使用 `greadlink` (如果已安装)。
 
 ### 步骤
 
 1.  **克隆仓库:**
 
     ```bash
-    git clone https://github.com/xiangCaO233/xiang-dotfs.git ~/my-dotfiles
-    cd ~/my-dotfiles
+    git clone https://github.com/xiangCaO233/xiang-dotfs.git ~/xiang-dotfs
+    cd ~/xiang-dotfs
     ```
-
-    (如果你愿意，也可以使用 `my-dotfiles` 以外的目录名。)
 
 2.  **运行设置脚本:**
     `setupcfg.sh` 脚本将会：
@@ -72,9 +70,7 @@
 ## 更新配置
 
 -   **从仓库拉取更新:**
-    如果你在一台机器上更新了 dotfiles 并将它们推送到了远程仓库，你可以在另一台机器上拉取这些更改：
     ```bash
     cd ~/my-dotfiles
     git pull
-    ./updatefiles.sh # 运行此脚本以确保任何新增文件的链接都已创建
     ```
