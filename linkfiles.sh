@@ -46,6 +46,7 @@ links=(
     # --- 位于 $HOME/.config 下的目录 ---
     # 对于目录，我们会链接整个目录。仓库中此目录下的所有内容都会通过链接在目标位置可见。
     "fish                        $USER_CONFIG_DIR/fish"
+    "mpv                         $USER_CONFIG_DIR/mpv"
     "wezterm                     $USER_CONFIG_DIR/wezterm"
     "yazi                        $USER_CONFIG_DIR/yazi"
     "coc/ultisnips               $USER_CONFIG_DIR/coc/ultisnips" # coc 目录下的 ultisnips 子目录
