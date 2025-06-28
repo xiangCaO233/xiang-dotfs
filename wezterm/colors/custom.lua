@@ -200,4 +200,4 @@ local pcolorscheme = {
   compose_cursor = pink_theme.flamingo,
 }
 
-return pcolorscheme
+return colorscheme

@@ -5,6 +5,7 @@ if status is-interactive
 		"$HOME/.local/bin" \
 		"$HOME/Android/Sdk/emulator" \
 		"/usr/lib/qt6/bin" \
+		"~/.cargo/bin/" \
 		"/Users/2333xiang/Library/Python/3.9/bin" \
 		$PATH
 	alias ninja='ninja -j24'

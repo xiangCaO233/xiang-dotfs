@@ -19,6 +19,8 @@ set softtabstop=4
 set updatetime=66
 " 设置文件编码
 set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8
 " 合并行号和相对行号
 set signcolumn=number
 " 启用自动缩进
