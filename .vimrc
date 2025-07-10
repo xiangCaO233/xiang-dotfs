@@ -15,8 +15,8 @@ set softtabstop=4
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-" 设置vim响应时间为66ms
-set updatetime=66
+" 设置vim响应时间为10ms
+set updatetime=10
 " 设置文件编码
 set encoding=utf-8
 set fileencoding=utf-8
