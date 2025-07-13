@@ -22,6 +22,8 @@
     - 目标位置: `~/.config/fish/`
 - **`wezterm/*`**: WezTerm 终端模拟器的配置文件。
     - 目标位置: `~/.config/wezterm/`
+- **`alacritty/*`**: alacritty 终端模拟器的配置文件。
+    - 目标位置: `~/.config/alacritty/`
 - **`yazi/*`**: Yazi 终端文件管理器的配置文件。
     - 目标位置: `~/.config/yazi/`
 - **`coc/ultisnips/*`**: Vim 中 CoC 插件的 UltiSnips 集成所使用的多种编程语言的代码片段。
@@ -58,7 +60,6 @@
 
 2.  **运行设置脚本:**
     `setupcfg.sh` 脚本将会：
-
     - 备份目标位置任何已存在的文件/目录，通过在其原名后附加时间戳 (例如, `.bashrc_bak_YYYYMMDDHHMMSS`)。
     - 创建从本仓库中的文件到你用户主目录中对应位置的符号链接。
 
@@ -71,6 +72,6 @@
 
 - **从仓库拉取更新:**
     ```bash
-    cd ~/my-dotfiles
+    cd ~/xiang-dotfs
     git pull
     ```
