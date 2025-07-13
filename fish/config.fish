@@ -12,6 +12,8 @@ if status is-interactive
 	alias si="fastfetch"
 	alias t="tmux" 
 	alias tls="tmux ls"
+	alias ll="ls -lh --time-style=long-iso"
+	alias lal="ls -lha --time-style=long-iso"
 
   # 不同模式下的光标样式
   set fish_cursor_default block      # Normal 模式：块状光标

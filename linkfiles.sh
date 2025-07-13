@@ -49,6 +49,7 @@ links=(
     "mpv                         $USER_CONFIG_DIR/mpv"
     "wezterm                     $USER_CONFIG_DIR/wezterm"
     "yazi                        $USER_CONFIG_DIR/yazi"
+    "alacritty                   $USER_CONFIG_DIR/alacritty"
     "coc/ultisnips               $USER_CONFIG_DIR/coc/ultisnips" # coc 目录下的 ultisnips 子目录
 )
 

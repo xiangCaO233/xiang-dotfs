@@ -1,0 +1,9 @@
+[general]
+import = [
+    "~/.config/alacritty/themes/themes/tokyo_night.toml"
+]
+
+[font]
+normal = { family = "ComicShannsMono Nerd Font", style = "regular" }
+bold = { family = "ComicShannsMono Nerd Font", style = "bold" }
+size = 14
