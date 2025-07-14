@@ -3,7 +3,25 @@ import = [
     "~/.config/alacritty/themes/themes/tokyo_night.toml"
 ]
 
+[scrolling]
+history = 100000
+
 [font]
 normal = { family = "ComicShannsMono Nerd Font", style = "regular" }
 bold = { family = "ComicShannsMono Nerd Font", style = "bold" }
 size = 14
+
+[window]
+opacity = 0.88
+startup_mode = "Maximized"
+decorations = "None"
+title = "xiang-gentoo"
+
+[mouse]
+hide_when_typing = true
+
+[keyboard]
+bindings = [{ key = "j", mods = "Control | Shift", action = "IncreaseFontSize"},
+			{ key = "k", mods = "Control | Shift", action = "DecreaseFontSize"},
+			{ key = "r", mods = "Control | Shift", action = "ResetFontSize"},
+			{ key = "Escape", mods = "Shift", action = "ToggleViMode"}]
