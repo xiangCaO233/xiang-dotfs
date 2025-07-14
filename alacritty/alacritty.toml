@@ -7,7 +7,7 @@ import = [
 history = 100000
 
 [font]
-normal = { family = "ComicShannsMono Nerd Font", style = "regular" }
+normal = { family = "ComicShannsMono Nerd Font"}
 bold = { family = "ComicShannsMono Nerd Font", style = "bold" }
 size = 14
 
