@@ -6,6 +6,7 @@ return {
 			c = { "clang_format" },
 			cpp = { "clang_format" },
 			lua = { "stylua" },
+			cmake = { "cmake_format" },
 			-- 在这里添加其他文件类型的格式化工具
 		},
 		-- 启用保存时自动格式化

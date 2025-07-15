@@ -1,0 +1,10 @@
+{
+    "snippets.ultisnips.pythonPrompt": false,
+    "prettier.tabWidth": 4,
+    "clangd.enabled": true,
+    "suggest.noselect": true,
+    "suggest.enablePreselect": false,
+    "sonarlint.pathToCompileCommands": "${workspaceFolder}build/compile_commands.json",
+    "sonarlint.notifyMissingCompileCommands": false,
+    "inlayHint.position": "inline"
+}

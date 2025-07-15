@@ -10,6 +10,7 @@ return {
 			ensure_installed = {
 				"c",
 				"cpp",
+				"cmake",
 				"lua",
 				"vim",
 				"vimdoc",
@@ -18,6 +19,7 @@ return {
 				"typescript",
 				"python",
 				"rust",
+				"java",
 				"html",
 				"css",
 			},
