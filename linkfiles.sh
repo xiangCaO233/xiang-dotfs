@@ -44,9 +44,10 @@ links=(
     ".vim/coc-settings.json      $USER_HOME/.vim/coc-settings.json" # 文件，其父目录 .vim 已确保存在
 
     # --- 位于 $HOME/.config 下的目录 ---
-    # 对于目录，我们会链接整个目录。仓库中此目录下的所有内容都会通过链接在目标位置可见。
+    # 对于目录，会链接整个目录。仓库中此目录下的所有内容都会通过链接在目标位置可见。
     "fish                        $USER_CONFIG_DIR/fish"
     "mpv                         $USER_CONFIG_DIR/mpv"
+    "nvim                        $USER_CONFIG_DIR/nvim"
     "wezterm                     $USER_CONFIG_DIR/wezterm"
     "yazi                        $USER_CONFIG_DIR/yazi"
     "alacritty                   $USER_CONFIG_DIR/alacritty"
