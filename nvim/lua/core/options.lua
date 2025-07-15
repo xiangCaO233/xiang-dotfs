@@ -8,42 +8,42 @@ local opt = vim.opt
 -- -----------------------------------------------------------------------------
 -- 外观和界面 (Appearance)
 -- -----------------------------------------------------------------------------
-opt.number = true              -- 显示行号
-opt.cursorline = true          -- 高亮当前光标行
-opt.showmatch = true           -- 显示匹配的括号
-opt.signcolumn = "number"      -- 将符号列和行号列合并
-vim.cmd("syntax on")           -- 启用语法高亮 (在 Neovim 中通常默认开启)
+opt.number = true -- 显示行号
+opt.cursorline = true -- 高亮当前光标行
+opt.showmatch = true -- 显示匹配的括号
+opt.signcolumn = "number" -- 将符号列和行号列合并
+vim.cmd("syntax on") -- 启用语法高亮 (在 Neovim 中通常默认开启)
 
 -- -----------------------------------------------------------------------------
 -- 缩进和制表符 (Indentation & Tabs)
 -- -----------------------------------------------------------------------------
-opt.expandtab = true           -- Tab 键转换为空格
-opt.tabstop = 4                -- Tab 宽度为4个空格
-opt.shiftwidth = 4             -- 自动缩进的宽度为4个空格
-opt.softtabstop = 4            -- 在插入模式下，Tab/Backspace键的宽度
-opt.autoindent = true          -- 启用自动缩进
-opt.smartindent = true         -- 启用智能缩进
+opt.expandtab = true -- Tab 键转换为空格
+opt.tabstop = 4 -- Tab 宽度为4个空格
+opt.shiftwidth = 4 -- 自动缩进的宽度为4个空格
+opt.softtabstop = 4 -- 在插入模式下，Tab/Backspace键的宽度
+opt.autoindent = true -- 启用自动缩进
+opt.smartindent = true -- 启用智能缩进
 
 -- -----------------------------------------------------------------------------
 -- 搜索 (Search)
 -- -----------------------------------------------------------------------------
-opt.hlsearch = true            -- 启用搜索结果高亮
-opt.incsearch = true           -- 启用增量搜索 (输入时即时高亮)
+opt.hlsearch = true -- 启用搜索结果高亮
+opt.incsearch = true -- 启用增量搜索 (输入时即时高亮)
 
 -- -----------------------------------------------------------------------------
 -- 文件处理 (File Handling)
 -- -----------------------------------------------------------------------------
-opt.hidden = true                       -- 允许在未保存的情况下切换缓冲区
-opt.swapfile = false                    -- 禁用交换文件
-opt.encoding = "utf-8"                  -- 设置文件编码
-opt.fileencoding = "utf-8"              -- 设置文件编码
-vim.cmd("filetype plugin indent on")    -- 启用文件类型检测和缩进
+opt.hidden = true -- 允许在未保存的情况下切换缓冲区
+opt.swapfile = false -- 禁用交换文件
+opt.encoding = "utf-8" -- 设置文件编码
+opt.fileencoding = "utf-8" -- 设置文件编码
+vim.cmd("filetype plugin indent on") -- 启用文件类型检测和缩进
 
 -- -----------------------------------------------------------------------------
 -- 行为和性能 (Behavior & Performance)
 -- -----------------------------------------------------------------------------
-opt.updatetime = 100             -- 更新时间(ms)
-opt.backspace = "indent,eol,start"  -- 配置 backspace 键的行为
-opt.mouse = ""                      -- 禁用所有模式下的鼠标支持
-opt.clipboard = "unnamedplus"       -- 强烈建议使用 "unnamedplus"，它会使用系统的主要剪贴板，更符合直觉
-opt.verbose = 0                     -- 禁用调试信息
+opt.updatetime = 100 -- 更新时间(ms)
+opt.backspace = "indent,eol,start" -- 配置 backspace 键的行为
+opt.mouse = "" -- 禁用所有模式下的鼠标支持
+opt.clipboard = "unnamedplus" -- 强烈建议使用 "unnamedplus"，它会使用系统的主要剪贴板，更符合直觉
+opt.verbose = 0 -- 禁用调试信息

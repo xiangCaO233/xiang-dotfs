@@ -1,10 +1,10 @@
 -- 设置快捷键的辅助函数
 local function map(mode, lhs, rhs, opts)
-  local options = { noremap = true, silent = true }
-  if opts then
-    options = vim.tbl_extend("force", options, opts)
-  end
-  vim.keymap.set(mode, lhs, rhs, options)
+	local options = { noremap = true, silent = true }
+	if opts then
+		options = vim.tbl_extend("force", options, opts)
+	end
+	vim.keymap.set(mode, lhs, rhs, options)
 end
 
 -- 使用 F3 打开或关闭 nvim-tree 文件树

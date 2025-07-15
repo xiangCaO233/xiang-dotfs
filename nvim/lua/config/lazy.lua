@@ -15,30 +15,30 @@ local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 -- .fs_stat(lazypath) 会检查指定路径的文件或目录是否存在。如果不存在，则返回 nil
 -- `if not ... then` 表示：如果 lazypath 这个目录不存在，那么就执行下面的安装代码
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  -- 定义 lazy.nvim 的 Git 仓库地址
-  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+	-- 定义 lazy.nvim 的 Git 仓库地址
+	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
 
-  -- 执行 git clone 命令来下载 lazy.nvim
-  -- "--filter=blob:none": Git 的性能优化参数，部分克隆
-  --                       它告诉 Git 只下载提交历史，而不下载每个文件的历史版本内容，可以让克隆速度变得非常快，体积也更小
-  -- "--branch=stable":    指定克隆 `stable` 稳定分支，对于日常使用来说稳定版比开发版更可靠
-  -- lazyrepo:             要克隆的仓库 URL
-  -- lazypath:             要克隆到的本地路径
-  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+	-- 执行 git clone 命令来下载 lazy.nvim
+	-- "--filter=blob:none": Git 的性能优化参数，部分克隆
+	--                       它告诉 Git 只下载提交历史，而不下载每个文件的历史版本内容，可以让克隆速度变得非常快，体积也更小
+	-- "--branch=stable":    指定克隆 `stable` 稳定分支，对于日常使用来说稳定版比开发版更可靠
+	-- lazyrepo:             要克隆的仓库 URL
+	-- lazypath:             要克隆到的本地路径
+	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
 
-  -- 检查 Git 命令是否执行成功
-  if vim.v.shell_error ~= 0 then
-    -- 如果克隆失败，则在 Neovim 中显示一个格式化的错误信息。
-    vim.api.nvim_echo({
-      { "克隆 lazy.nvim 失败:\n", "ErrorMsg" }, -- 第一行，用高亮的 ErrorMsg 样式
-      { out, "WarningMsg" },                   -- 第二行，显示 git 命令的输出，用 WarningMsg 样式
-      { "\n按任意键退出..." },                  -- 第三行，提示用户
-    }, true, {})
-    -- 等待用户按下一个键,防止错误信息一闪而过来不及看。
-    vim.fn.getchar()
-    -- 退出 Neovim
-    os.exit(1)
-  end
+	-- 检查 Git 命令是否执行成功
+	if vim.v.shell_error ~= 0 then
+		-- 如果克隆失败，则在 Neovim 中显示一个格式化的错误信息。
+		vim.api.nvim_echo({
+			{ "克隆 lazy.nvim 失败:\n", "ErrorMsg" }, -- 第一行，用高亮的 ErrorMsg 样式
+			{ out, "WarningMsg" }, -- 第二行，显示 git 命令的输出，用 WarningMsg 样式
+			{ "\n按任意键退出..." }, -- 第三行，提示用户
+		}, true, {})
+		-- 等待用户按下一个键,防止错误信息一闪而过来不及看。
+		vim.fn.getchar()
+		-- 退出 Neovim
+		os.exit(1)
+	end
 end
 
 -- 将 lazy.nvim 的路径添加到 Neovim 的运行时路径（runtimepath）的 *最前面*。
@@ -71,24 +71,24 @@ require("core/core")
 -- `require("lazy")` 会加载我们刚刚添加到 rtp 里的 lazy.nvim 模块。
 -- `.setup({...})` 函数接收一个配置表（table）作为参数。
 require("lazy").setup({
-  -- `spec` (specification) 定义了你的插件列表。
-  spec = {
-    -- 这是一个非常重要的模块化设计！
-    -- 这行代码告诉 lazy.nvim 去 'lua/plugins/' 目录下加载所有的 .lua 文件作为插件配置。
-    -- 而不是把所有插件配置都堆在这个文件里。
-    -- 这样做能让你的配置结构非常清晰、易于管理。
-    -- 例如，你可以在 lua/plugins/completion.lua 中放所有关于补全的插件。
-    { import = "plugins" },
-  },
+	-- `spec` (specification) 定义了你的插件列表。
+	spec = {
+		-- 这是一个非常重要的模块化设计！
+		-- 这行代码告诉 lazy.nvim 去 'lua/plugins/' 目录下加载所有的 .lua 文件作为插件配置。
+		-- 而不是把所有插件配置都堆在这个文件里。
+		-- 这样做能让你的配置结构非常清晰、易于管理。
+		-- 例如，你可以在 lua/plugins/completion.lua 中放所有关于补全的插件。
+		{ import = "plugins" },
+	},
 
-  -- 在这里配置 lazy.nvim 本身的其它行为,更多细节请查阅 lazy.nvim 的文档。
+	-- 在这里配置 lazy.nvim 本身的其它行为,更多细节请查阅 lazy.nvim 的文档。
 
-  -- 在安装插件时，Neovim 界面所使用的主题。
-  -- 这只是一个美化选项，让安装过程的界面更好看。
-  install = { colorscheme = { "habamax" } },
+	-- 在安装插件时，Neovim 界面所使用的主题。
+	-- 这只是一个美化选项，让安装过程的界面更好看。
+	install = { colorscheme = { "habamax" } },
 
-  -- 配置插件更新检查器。
-  checker = {
-    enabled = true, -- 启用自动检查。lazy.nvim 会在启动时异步检查是否有插件可以更新。
-  },
+	-- 配置插件更新检查器。
+	checker = {
+		enabled = true, -- 启用自动检查。lazy.nvim 会在启动时异步检查是否有插件可以更新。
+	},
 })
