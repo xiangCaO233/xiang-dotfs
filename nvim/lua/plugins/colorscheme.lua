@@ -6,7 +6,7 @@ return {
 	priority = 1000, -- 确保它在所有UI插件之前加载
 	config = function()
 		require("catppuccin").setup({
-			flavour = "mocha", -- 或者 "latte", "frappe", "mocha"
+			flavour = "frappe", -- 或者 "latte", "frappe", "mocha"
 
 			-- 这是实现你想要效果的关键！
 			transparent_background = true,
