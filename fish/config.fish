@@ -7,6 +7,7 @@ if status is-interactive
 		"/usr/lib/qt6/bin" \
 		"~/.cargo/bin/" \
 		"/Users/2333xiang/Library/Python/3.9/bin" \
+        "$HOME/.npm-global/bin/" \
 		$PATH
 	alias ninja='ninja -j24'
 	alias si="fastfetch"

@@ -8,6 +8,7 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 	},
+	build = "yarn install --frozen-lockfile",
 	-- 使用 init 函数确保在插件加载前设置好全局变量
 	init = function()
 		-- 在这里定义你的“默认语言服务器”列表
@@ -51,7 +52,7 @@ return {
 
 		-- Coc.nvim 的一些推荐设置 (可以在 coc-settings.json 中更详细地配置)
 		-- 比如，让 coc 在状态栏显示诊断信息
-		vim.g.coc_global_extensions = {}
+		-- vim.g.coc_global_extensions = {}
 
 		-- ===================================================================
 		-- 外观和高亮 (Appearance and Highlights)

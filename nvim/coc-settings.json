@@ -6,5 +6,21 @@
     "suggest.enablePreselect": false,
     "sonarlint.pathToCompileCommands": "${workspaceFolder}build/compile_commands.json",
     "sonarlint.notifyMissingCompileCommands": false,
-    "inlayHint.position": "inline"
+    "inlayHint.position": "inline",
+    "languageserver": {
+        "glsl": {
+            "command": "glsl_analyzer",
+            "args": ["--stdio"],
+            "filetypes": [
+                "glsl",
+                "vert",
+                "frag",
+                "geom",
+                "comp",
+                "tesc",
+                "tese"
+            ]
+        }
+    },
+    "coc.preferences.formatOnSave": true
 }

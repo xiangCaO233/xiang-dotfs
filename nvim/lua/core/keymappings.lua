@@ -26,8 +26,8 @@ map({ "n", "v", "i" }, "<Right>", "<Nop>")
 map({ "n", "v", "i" }, "nh", "<cmd>noh<CR>", { desc = "清除搜索高亮" })
 
 -- "noremap <silent> K 5k" 和 "noremap <silent> J 5j"
-map({ "n", "v", "i" }, "K", "5k", { desc = "向上移动5行" })
-map({ "n", "v", "i" }, "J", "5j", { desc = "向下移动5行" })
+map({ "n", "v" }, "K", "5k", { desc = "向上移动5行" })
+map({ "n", "v" }, "J", "5j", { desc = "向下移动5行" })
 
 -- "noremap H ^" 和 "noremap L $"
 map({ "n", "v" }, "H", "^", { desc = "移动到行首非空白字符" })
