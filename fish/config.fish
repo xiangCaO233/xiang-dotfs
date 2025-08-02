@@ -1,5 +1,6 @@
 if status is-interactive
   # Commands to run in interactive sessions can go here
+    set -gx VK_ICD_FILENAMES "/opt/homebrew/Cellar/molten-vk/1.3.0/etc/vulkan/icd.d/MoltenVK_icd.json"
 	set -gx MAKEFLAGS -j24
 	set -gx PATH \
 		"$HOME/.local/bin" \
