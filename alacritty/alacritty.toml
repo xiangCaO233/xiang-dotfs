@@ -5,8 +5,8 @@ import = ["~/.config/alacritty/themes/themes/catppuccin.toml"]
 history = 100000
 
 [font]
-normal = { family = "ComicShannsMono Nerd Font", style = "bold" }
-bold = { family = "ComicShannsMono Nerd Font", style = "bold italic" }
+normal = { family = "ComicShannsMono Nerd Font", style = "Bold" }
+bold = { family = "ComicShannsMono Nerd Font", style = "Bold Italic" }
 size = 16
 
 [window]
