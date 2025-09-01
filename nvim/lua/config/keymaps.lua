@@ -4,11 +4,11 @@
 
 -- 设置快捷键的辅助函数
 local function map(mode, lhs, rhs, opts)
-  local options = { noremap = true, silent = true }
-  if opts then
-    options = vim.tbl_extend("force", options, opts)
-  end
-  vim.keymap.set(mode, lhs, rhs, options)
+    local options = { noremap = true, silent = true }
+    if opts then
+        options = vim.tbl_extend("force", options, opts)
+    end
+    vim.keymap.set(mode, lhs, rhs, options)
 end
 
 -- better up/down
@@ -38,23 +38,22 @@ map("v", "<A-j>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc 
 map("v", "<A-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "Move Up" })
 
 -- 缓冲区操作
-map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
-map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
-map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
-map("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
+map("n", "<leader>[", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
+map("n", "<leader>]", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 map("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 map("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 map("n", "<leader>bd", function()
-  Snacks.bufdelete()
+    Snacks.bufdelete()
 end, { desc = "Delete Buffer" })
 map("n", "<leader>bo", function()
-  Snacks.bufdelete.other()
+    Snacks.bufdelete.other()
 end, { desc = "Delete Other Buffers" })
 map("n", "<leader>bD", "<cmd>:bd<cr>", { desc = "Delete Buffer and Window" })
 
 -- -----------------------------------------------------------------------------
 -- 禁用方向按键
 -- -----------------------------------------------------------------------------
+
 map({ "n", "v", "i" }, "<Up>", "<Nop>")
 map({ "n", "v", "i" }, "<Down>", "<Nop>")
 map({ "n", "v", "i" }, "<Left>", "<Nop>")
@@ -62,9 +61,9 @@ map({ "n", "v", "i" }, "<Right>", "<Nop>")
 
 -- 使用esc清除高亮或停止编辑snippets
 map({ "n", "v", "i" }, "<ESC>", function()
-  vim.cmd("noh")
-  LazyVim.cmp.actions.snippet_stop()
-  return "<esc>"
+    vim.cmd("noh")
+    LazyVim.cmp.actions.snippet_stop()
+    return "<esc>"
 end, { desc = "清除搜索高亮/停止snippits" })
 
 -- 切换模式映射
@@ -104,11 +103,11 @@ map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
 
 -- 诊断提示
 local diagnostic_goto = function(next, severity)
-  local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
-  severity = severity and vim.diagnostic.severity[severity] or nil
-  return function()
-    go({ severity = severity })
-  end
+    local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
+    severity = severity and vim.diagnostic.severity[severity] or nil
+    return function()
+        go({ severity = severity })
+    end
 end
 map("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
 map("n", "]d", diagnostic_goto(true), { desc = "Next Diagnostic" })
@@ -123,15 +122,15 @@ map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
 
 -- snippets
 map("s", "<Tab>", function()
-  return vim.snippet.active({ direction = 1 }) and "<cmd>lua vim.snippet.jump(1)<cr>"
+    return vim.snippet.active({ direction = 1 }) and "<cmd>lua vim.snippet.jump(1)<cr>"
 end, { expr = true, desc = "Jump Next" })
 map("s", "<C-n>", function()
-  return vim.snippet.active({ direction = 1 }) and "<cmd>lua vim.snippet.jump(1)<cr>"
+    return vim.snippet.active({ direction = 1 }) and "<cmd>lua vim.snippet.jump(1)<cr>"
 end, { expr = true, desc = "Jump Next" })
 
 map({ "i", "s" }, "<S-Tab>", function()
-  return vim.snippet.active({ direction = -1 }) and "<cmd>lua vim.snippet.jump(-1)<cr>"
+    return vim.snippet.active({ direction = -1 }) and "<cmd>lua vim.snippet.jump(-1)<cr>"
 end, { expr = true, desc = "Jump Previous" })
 map({ "i", "s" }, "<C-p>", function()
-  return vim.snippet.active({ direction = -1 }) and "<cmd>lua vim.snippet.jump(-1)<cr>"
+    return vim.snippet.active({ direction = -1 }) and "<cmd>lua vim.snippet.jump(-1)<cr>"
 end, { expr = true, desc = "Jump Previous" })
