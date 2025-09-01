@@ -11,7 +11,7 @@ return {
 		},
 		-- 启用保存时自动格式化
 		format_on_save = {
-			timeout_ms = 500,
+			timeout_ms = 2000,
 			lsp_fallback = true, -- 如果 conform 没有配置，则回退到 LSP
 		},
 	},

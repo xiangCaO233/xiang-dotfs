@@ -12,6 +12,7 @@ opt.number = true -- 显示行号
 opt.cursorline = true -- 高亮当前光标行
 opt.showmatch = true -- 显示匹配的括号
 opt.signcolumn = "number" -- 将符号列和行号列合并
+opt.termguicolors = true -- 使用终端真彩色
 vim.cmd("syntax on") -- 启用语法高亮 (在 Neovim 中通常默认开启)
 
 -- -----------------------------------------------------------------------------
@@ -23,12 +24,15 @@ opt.shiftwidth = 4 -- 自动缩进的宽度为4个空格
 opt.softtabstop = 4 -- 在插入模式下，Tab/Backspace键的宽度
 opt.autoindent = true -- 启用自动缩进
 opt.smartindent = true -- 启用智能缩进
+opt.wrap = false -- 防止包裹
 
 -- -----------------------------------------------------------------------------
 -- 搜索 (Search)
 -- -----------------------------------------------------------------------------
 opt.hlsearch = true -- 启用搜索结果高亮
 opt.incsearch = true -- 启用增量搜索 (输入时即时高亮)
+opt.ignorecase = true -- 搜索不区分大小写
+opt.smartcase = true -- 智能区分大小写
 
 -- -----------------------------------------------------------------------------
 -- 文件处理 (File Handling)

@@ -16,6 +16,10 @@ if status is-interactive
 	alias tls="tmux ls"
 	alias ll="ls -lh"
 	alias lal="ls -lha"
+    # 后台低优先级make
+    alias bgmake='bgrun make'
+    # 后台低优先级bgemerge
+    alias bgemerge='bgrun sudo emerge'
 
   # 不同模式下的光标样式
   set fish_cursor_default block      # Normal 模式：块状光标

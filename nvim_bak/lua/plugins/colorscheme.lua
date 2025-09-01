@@ -8,7 +8,6 @@ return {
 		require("catppuccin").setup({
 			flavour = "frappe", -- 或者 "latte", "frappe", "mocha"
 
-			-- 这是实现你想要效果的关键！
 			transparent_background = true,
 
 			-- 让终端的斜体和粗体生效

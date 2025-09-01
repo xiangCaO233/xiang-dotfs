@@ -1,18 +1,16 @@
 [general]
-import = [
-    "~/.config/alacritty/themes/themes/catppuccin.toml"
-]
+import = ["~/.config/alacritty/themes/themes/catppuccin.toml"]
 
 [scrolling]
 history = 100000
 
 [font]
-normal = { family = "ComicShannsMono Nerd Font"}
-bold = { family = "ComicShannsMono Nerd Font", style = "bold" }
-size = 14
+normal = { family = "ComicShannsMono Nerd Font", style = "bold" }
+bold = { family = "ComicShannsMono Nerd Font", style = "bold italic" }
+size = 16
 
 [window]
-opacity = 0.84
+opacity = 0.80
 startup_mode = "Maximized"
 decorations = "None"
 title = "xiang"
@@ -21,7 +19,9 @@ title = "xiang"
 hide_when_typing = true
 
 [keyboard]
-bindings = [{ key = "j", mods = "Control | Shift", action = "IncreaseFontSize"},
-			{ key = "k", mods = "Control | Shift", action = "DecreaseFontSize"},
-			{ key = "r", mods = "Control | Shift", action = "ResetFontSize"},
-			{ key = "Escape", mods = "Shift", action = "ToggleViMode"}]
+bindings = [
+  { key = "j", mods = "Control | Shift", action = "IncreaseFontSize" },
+  { key = "k", mods = "Control | Shift", action = "DecreaseFontSize" },
+  { key = "r", mods = "Control | Shift", action = "ResetFontSize" },
+  { key = "Escape", mods = "Shift", action = "ToggleViMode" },
+]

@@ -1,11 +1,22 @@
+-- Keymaps are automatically loaded on the VeryLazy event
+-- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
+-- Add any additional keymaps here
 -- 设置快捷键的辅助函数
 local function map(mode, lhs, rhs, opts)
-	local options = { noremap = true, silent = true }
-	if opts then
-		options = vim.tbl_extend("force", options, opts)
-	end
-	vim.keymap.set(mode, lhs, rhs, options)
+  local options = { noremap = true, silent = true }
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
+  vim.keymap.set(mode, lhs, rhs, options)
 end
+-- 设置全局的 <Leader> 键为空格键。
+-- Leader 键是自定义快捷键的前缀，可以让你创建一整套属于自己的快捷键，而不用担心和 Vim 内置的快捷键冲突。
+-- 使用空格键是现代 Vim/Neovim 配置的一个流行约定，因为它位置顺手且很少被使用。
+vim.g.mapleader = " "
+
+-- 设置当前缓冲区的 <LocalLeader> 键为反斜杠。
+-- LocalLeader 主要用于那些只针对特定文件类型或缓冲区的快捷键。
+vim.g.maplocalleader = "\\"
 
 -- 使用 F3 打开或关闭 nvim-tree 文件树
 map("n", "<F3>", "<cmd>NvimTreeToggle<CR>", { desc = "打开/关闭文件树" })
@@ -46,6 +57,8 @@ map("n", "q", "ge", { desc = "移动到上一个单词的词尾" })
 -- "vmap p "_dp"
 -- 在可视模式下粘贴时,不覆盖默认寄存器（即不替换刚刚复制的内容）
 map("v", "p", '"_dP', { desc = "粘贴而不替换寄存器" })
+map("v", "<leader>J", ":m '>+1<CR>gv=gv", { desc = "向上移动选中的代码块" })
+map("v", "<leader>K", ":m '<-2<CR>gv=gv", { desc = "向下移动选中的代码块" })
 
 -- -----------------------------------------------------------------------------
 -- 多模式快捷键

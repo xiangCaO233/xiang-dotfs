@@ -20,8 +20,8 @@ return {
 			on_attach = on_attach,
 
 			-- 禁用 netrw 的相关设置，推荐在 setup 中也声明一次
-			disable_netrw = true,
-			hijack_netrw = true,
+			-- disable_netrw = true,
+			-- hijack_netrw = true,
 
 			-- 视图和窗口行为配置
 			view = {
@@ -31,8 +31,8 @@ return {
 				preserve_window_proportions = true,
 				-- 其他视图设置
 				side = "left",
-				number = true,
-				relativenumber = false, -- 你可以根据喜好设置
+				number = false,
+				relativenumber = false,
 			},
 			-- 文件操作行为
 			actions = {
