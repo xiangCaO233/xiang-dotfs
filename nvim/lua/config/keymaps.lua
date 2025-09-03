@@ -118,19 +118,14 @@ map("n", "]w", diagnostic_goto(true, "WARN"), { desc = "Next Warning" })
 map("n", "[w", diagnostic_goto(false, "WARN"), { desc = "Prev Warning" })
 
 -- quit
+map("n", "<leader>wq", "<cmd>wqa<cr>", { desc = "Write and Quit All" })
 map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
 
 -- snippets
-map("s", "<Tab>", function()
-    return vim.snippet.active({ direction = 1 }) and "<cmd>lua vim.snippet.jump(1)<cr>"
-end, { expr = true, desc = "Jump Next" })
-map("s", "<C-n>", function()
-    return vim.snippet.active({ direction = 1 }) and "<cmd>lua vim.snippet.jump(1)<cr>"
-end, { expr = true, desc = "Jump Next" })
-
-map({ "i", "s" }, "<S-Tab>", function()
-    return vim.snippet.active({ direction = -1 }) and "<cmd>lua vim.snippet.jump(-1)<cr>"
-end, { expr = true, desc = "Jump Previous" })
-map({ "i", "s" }, "<C-p>", function()
-    return vim.snippet.active({ direction = -1 }) and "<cmd>lua vim.snippet.jump(-1)<cr>"
-end, { expr = true, desc = "Jump Previous" })
+-- map("s", "<C-S-a>", function()
+--     return vim.snippet.active({ direction = 1 }) and "<cmd>lua vim.snippet.jump(1)<cr>"
+-- end, { expr = true, desc = "Jump Next" })
+--
+-- map({ "i", "s" }, "<C-S-x>", function()
+--     return vim.snippet.active({ direction = -1 }) and "<cmd>lua vim.snippet.jump(-1)<cr>"
+-- end, { expr = true, desc = "Jump Previous" })
