@@ -63,8 +63,9 @@ map({ "n", "v", "i" }, "<Right>", "<Nop>")
 map({ "n", "v", "i" }, "<ESC>", function()
     vim.cmd("noh")
     LazyVim.cmp.actions.snippet_stop()
-    return "<esc>"
-end, { desc = "清除搜索高亮/停止snippits" })
+    -- 使用 nvim_feedkeys 来模拟一次 <ESC> 按键
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<ESC>", true, false, true), "n", false)
+end, { desc = "清除搜索高亮/停止snippits 并切实执行一次esc" })
 
 -- 切换模式映射
 map("i", "jk", "<ESC>", { desc = "jk退出插入模式" })
