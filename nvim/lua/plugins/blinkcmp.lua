@@ -11,9 +11,9 @@ return {
             -- 将回车键映射到确认补全
             ["<CR>"] = { "accept", "fallback" },
             -- ctrl+j跳转到下一个snippt槽
-            ["<C-j>"] = { "snippet_forward", "fallback" },
+            -- ["<C-j>"] = { "snippet_forward", "fallback" },
             -- ctrl+k跳转到上一个snippt槽
-            ["<C-k>"] = { "snippet_backward", "fallback" },
+            -- ["<C-k>"] = { "snippet_backward", "fallback" },
 
             -- disable a keymap from the preset
             -- ["<C-e>"] = false, -- or {}

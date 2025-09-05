@@ -123,10 +123,10 @@ map("n", "<leader>wq", "<cmd>wqa<cr>", { desc = "Write and Quit All" })
 map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
 
 -- snippets
--- map("s", "<C-S-a>", function()
---     return vim.snippet.active({ direction = 1 }) and "<cmd>lua vim.snippet.jump(1)<cr>"
--- end, { expr = true, desc = "Jump Next" })
---
--- map({ "i", "s" }, "<C-S-x>", function()
---     return vim.snippet.active({ direction = -1 }) and "<cmd>lua vim.snippet.jump(-1)<cr>"
--- end, { expr = true, desc = "Jump Previous" })
+map({ "i", "s" }, "<C-j>", function()
+    return vim.snippet.active({ direction = 1 }) and "<cmd>lua vim.snippet.jump(1)<cr>"
+end, { expr = true, desc = "Jump Next" })
+
+map({ "i", "s" }, "<C-k>", function()
+    return vim.snippet.active({ direction = -1 }) and "<cmd>lua vim.snippet.jump(-1)<cr>"
+end, { expr = true, desc = "Jump Previous" })
