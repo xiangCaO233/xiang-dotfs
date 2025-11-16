@@ -9,6 +9,7 @@ if status is-interactive
         "~/.cargo/bin/" \
         "/Users/2333xiang/Library/Python/3.9/bin" \
         "$HOME/.npm-global/bin/" \
+        /home/xiang/Documents/coding/csharp/AiConsole/builds \
         $PATH
     alias ninja='ninja -j24'
     alias si="fastfetch"
