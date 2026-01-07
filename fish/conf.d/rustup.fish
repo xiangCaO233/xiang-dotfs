@@ -8,7 +8,7 @@ if test -f /etc/os-release
     if test -n "$id_line"
         # 从 ID 行中提取出发行版的 ID，处理有无双引号的情况
         set distro_id (string replace -r '^ID="?([^"]*)"?$' '$1' $id_line)
-        if test "$distro_id" = "gentoo"
+        if test "$distro_id" = gentoo
             # 如果是 Gentoo，你可以在这里添加任何特定的命令或操作
         else
             source "$HOME/.cargo/env.fish"
@@ -17,5 +17,5 @@ if test -f /etc/os-release
         echo "在 /etc/os-release 文件中没有找到 'ID' 字段。"
     end
 else
-	# echo "未找到 /etc/os-release 文件。这可能不是标准的 Linux 系统，或者是一个非常旧的版本。"
+    # echo "未找到 /etc/os-release 文件。这可能不是标准的 Linux 系统，或者是一个非常旧的版本。"
 end

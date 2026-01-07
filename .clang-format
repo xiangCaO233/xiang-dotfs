@@ -61,7 +61,7 @@ AllowShortLoopsOnASingleLine: true
 # 总是在定义返回类型后换行(deprecated)
 # AlwaysBreakAfterDefinitionReturnType: None
 
-# 总是在返回类型后换行: None, All, TopLevel(顶级函数，不包括在类中的函数), 
+# 总是在返回类型后换行: None, All, TopLevel(顶级函数，不包括在类中的函数),
 #   AllDefinitions(所有的定义，不包括声明), TopLevelDefinitions(所有的顶级函数的定义)
 
 # 函数声明返回类型后是否换行(None 自动，All全部，TopLevel...)
@@ -114,13 +114,13 @@ BinPackParameters: true
 #   # 空名字空间的大括号是否可以在一行
 #   SplitEmptyNamespace: false
 
-# 在大括号前换行: Attach(始终将大括号附加到周围的上下文), Linux(除函数、命名空间和类定义，与Attach类似), 
-#   Mozilla(除枚举、函数、记录定义，与Attach类似), Stroustrup(除函数定义、catch、else，与Attach类似), 
+# 在大括号前换行: Attach(始终将大括号附加到周围的上下文), Linux(除函数、命名空间和类定义，与Attach类似),
+#   Mozilla(除枚举、函数、记录定义，与Attach类似), Stroustrup(除函数定义、catch、else，与Attach类似),
 #   Allman(总是在大括号前换行), GNU(总是在大括号前换行，并对于控制语句的大括号增加额外的缩进), WebKit(在函数前换行), Custom
 #   注：这里认为语句块也属于函数
 
 # 大括号的换行规则
-BreakBeforeBraces: GNU
+BreakBeforeBraces: Allman
 
 # 在二元运算符前换行: None(在操作符后换行), NonAssignment(在非赋值的操作符前换行), All(在操作符前换行)
 BreakBeforeBinaryOperators: None
@@ -138,7 +138,7 @@ BreakConstructorInitializers: BeforeComma
 ColumnLimit: 80
 
 # 描述具有特殊意义的注释的正则表达式，它不应该被分割为多行或以其它方式改变
-CommentPragmas: '-{3,}'
+CommentPragmas: "-{3,}"
 
 # 如果为true，则连续的名称空间声明将在同一行上。如果为false，则在新行上声明每个名称空间。
 CompactNamespaces: false
@@ -147,7 +147,7 @@ CompactNamespaces: false
 ConstructorInitializerAllOnOneLineOrOnePerLine: true
 
 # 构造函数的初始化列表的缩进宽度
-ConstructorInitializerIndentWidth:  4
+ConstructorInitializerIndentWidth: 4
 
 # 延续的行的缩进宽度
 ContinuationIndentWidth: 4
@@ -168,7 +168,7 @@ ExperimentalAutoDetectBinPacking: false
 FixNamespaceComments: true
 
 # 需要被解读为foreach循环而不是函数调用的宏
-ForEachMacros:  [ foreach, Q_FOREACH, BOOST_FOREACH ]
+ForEachMacros: [foreach, Q_FOREACH, BOOST_FOREACH]
 
 # 缩进case标签
 IndentCaseLabels: false
@@ -186,10 +186,10 @@ IndentWrappedFunctionNames: false
 KeepEmptyLinesAtTheStartOfBlocks: true
 
 # 开始一个块的宏的正则表达式
-MacroBlockBegin: ''
+MacroBlockBegin: ""
 
 # 结束一个块的宏的正则表达式
-MacroBlockEnd: ''
+MacroBlockEnd: ""
 
 # 连续空行的最大数量
 MaxEmptyLinesToKeep: 4
@@ -204,7 +204,7 @@ PenaltyBreakBeforeFirstCallParameter: 2
 PenaltyBreakComment: 300
 
 # 第一次在<<前换行的penalty
-PenaltyBreakFirstLessLess:  120
+PenaltyBreakFirstLessLess: 120
 
 # 在一个字符串字面量中引入换行的penalty
 PenaltyBreakString: 1000
@@ -213,7 +213,7 @@ PenaltyBreakString: 1000
 PenaltyExcessCharacter: 1000000
 
 # 对每一个空格缩进字符的penalty(相对于前导的非空格列计算)
-# PenaltyIndentedWhitespace: 0 
+# PenaltyIndentedWhitespace: 0
 
 # 将函数的返回类型放到它自己的行的penalty
 PenaltyReturnTypeOnItsOwnLine: 120
@@ -265,7 +265,7 @@ SpacesBeforeTrailingComments: 2
 SpacesInAngles: false
 
 # 在容器(ObjC和JavaScript的数组和字典等)字面量中添加空格
-SpacesInContainerLiterals:  false
+SpacesInContainerLiterals: false
 
 # 在C风格类型转换的括号中添加空格
 SpacesInCStyleCastParentheses: false
