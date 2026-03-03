@@ -1,0 +1,13 @@
+[services.xi-x]
+type = "sftp"
+host = "xiang233.top"
+user = "xiang"
+port = 22
+identity_file = "/home/xiang/.ssh/id_ed25519"
+
+[services.xi-p]
+type = "sftp"
+host = "xiang233.top"
+user = "podman"
+port = 22
+identity_file = "/home/xiang/.ssh/id_ed25519"

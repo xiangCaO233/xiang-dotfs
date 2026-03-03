@@ -16,14 +16,19 @@ if status is-interactive
     alias si="fastfetch"
     alias t="tmux"
     alias tls="tmux ls"
-    alias ll="ls -lh"
-    alias lal="ls -lha"
+    alias ls="eza -l"
+    alias lal="eza -lha"
     # 后台低优先级make
     alias bgmake='bgrun make'
     # 后台低优先级bgemerge
     alias bgemerge='bgrun sudo emerge'
     alias updategrub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
     alias emerge-update='sudo emerge --jobs=4 --load-average=32 --sync && bgemerge --jobs=4 --load-average=32 -avuDN @world'
+
+    if not set -q SSH_AUTH_SOCK
+        eval (ssh-agent -c) >/dev/null
+        ssh-add ~/.ssh/id_ed25519 2>/dev/null
+    end
 
     # 不同模式下的光标样式
     set fish_cursor_default block # Normal 模式：块状光标

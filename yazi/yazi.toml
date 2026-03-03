@@ -135,7 +135,7 @@ spotters = [
     # Image
     { mime = "image/{avif,hei?,jxl}", run = "magick" },
     { mime = "image/svg+xml", run = "svg" },
-    { mime = "image/*", run = "image" },
+    { mime = "image/*", run = "ueberzugpp" },
     # Video
     { mime = "video/*", run = "video" },
     # Virtual file system
