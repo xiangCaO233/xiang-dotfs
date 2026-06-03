@@ -35,3 +35,4 @@ font-family-italic = ComicShannsMono Nerd Font Propo
 font-family-bold-italic = ComicShannsMono Nerd Font Propo
 maximize = true
 font-size = 16
+term = xterm-256color

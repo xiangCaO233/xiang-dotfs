@@ -1,17 +1,28 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
-    set -gx VK_ICD_FILENAMES "/opt/homebrew/etc/vulkan/icd.d/MoltenVK_icd.json"
-    set -gx VK_LAYER_PATH "/opt/homebrew/share/vulkan/explicit_layer.d"
+    switch (uname)
+        case Darwin
+            # macOS 环境专属配置 (Apple Silicon / Intel)
+            set -gx VK_ICD_FILENAMES "/opt/homebrew/etc/vulkan/icd.d/MoltenVK_icd.json"
+            set -gx VK_LAYER_PATH "/opt/homebrew/share/vulkan/explicit_layer.d"
+            # 你的 Mac Python 路径
+            set -gx PATH "/Users/2333xiang/Library/Python/3.9/bin" $PATH
+
+        case Linux
+            # Linux 环境专属配置 (Wayland / X11)
+            # AMD 显卡特有的环境变量
+            set -gx HSA_OVERRIDE_GFX_VERSION 11.0.0
+            set -gx FORCE_VAAPI 1
+            set -e VK_ICD_FILENAMES
+            set -e VK_LAYER_PATH
+    end
     set -gx MAKEFLAGS -j24
-    set -gx FORCE_VAAPI 1
     set -gx PATH \
         "$HOME/.local/bin" \
         "$HOME/Android/Sdk/emulator" \
         /usr/lib/qt6/bin \
         "~/.cargo/bin/" \
-        "/Users/2333xiang/Library/Python/3.9/bin" \
         "$HOME/.npm-global/bin/" \
-        /home/xiang/Documents/coding/csharp/AiConsole/builds \
         $PATH
     alias ninja='ninja -j24'
     alias si="fastfetch"
@@ -54,3 +65,13 @@ if status is-interactive
     fish_user_key_bindings
 
 end
+
+# OpenClaw Completion
+source ~/.openclaw/completions/openclaw.fish
+
+# pnpm
+set -gx PNPM_HOME ~/.local/share/pnpm
+if not string match -q -- $PNPM_HOME $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
