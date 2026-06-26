@@ -11,3 +11,10 @@ host = "xiang233.top"
 user = "podman"
 port = 22
 identity_file = "/home/xiang/.ssh/id_ed25519"
+
+[services.xi-w]
+type = "sftp"
+host = "xiang233.top"
+user = "xiang"
+port = 22022
+identity_file = "/home/xiang/.ssh/id_ed25519"
