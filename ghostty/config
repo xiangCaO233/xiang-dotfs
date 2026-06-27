@@ -30,16 +30,16 @@ palette = 13=#f2aede
 palette = 14=#6bd7ca
 palette = 15=#bac2de
 font-family = ""
-font-family = FiraCode Nerd Font Propo
+font-family = 0xProto Nerd Font Propo
 font-family = Noto Sans CJK SC
 font-family-bold = ""
-font-family-bold = FiraCode Nerd Font Propo
+font-family-bold = 0xProto Nerd Font Propo
 font-family-bold = Noto Sans CJK SC
 font-family-italic = ""
-font-family-italic = FiraCode Nerd Font Propo
+font-family-italic = 0xProto Nerd Font Propo
 font-family-italic = Noto Sans CJK SC
 font-family-bold-italic = ""
-font-family-bold-italic = FiraCode Nerd Font Propo
+font-family-bold-italic = 0xProto Nerd Font Propo
 font-family-bold-italic = Noto Sans CJK SC
 maximize = true
 font-size = 16

@@ -67,7 +67,9 @@ if status is-interactive
 end
 
 # OpenClaw Completion
-source ~/.openclaw/completions/openclaw.fish
+if test -f $HOME/.openclaw/completions/openclaw.fish
+    source $HOME/.openclaw/completions/openclaw.fish
+end
 
 # pnpm
 set -gx PNPM_HOME ~/.local/share/pnpm
