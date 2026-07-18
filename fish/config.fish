@@ -77,3 +77,6 @@ if not string match -q -- $PNPM_HOME $PATH
     set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
+
+# kimi-code
+fish_add_path -g "/home/xiang/.kimi-code/bin"

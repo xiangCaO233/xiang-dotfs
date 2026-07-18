@@ -41,6 +41,7 @@ links=(
     ".tmux.conf                  $USER_HOME/.tmux.conf"
     ".bashrc                     $USER_HOME/.bashrc"
     ".clangd                     $USER_HOME/.clangd"
+    ".icons/xiaokewei128px-pointer $USER_HOME/.icons/xiaokewei128px-pointer"
     ".vim/coc-settings.json      $USER_HOME/.vim/coc-settings.json" # 文件，其父目录 .vim 已确保存在
 
     # --- 位于 $HOME/.config 下的目录 ---

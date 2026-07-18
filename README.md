@@ -14,6 +14,7 @@
 - **`.tmux.conf`**: tmux 终端复用器的配置文件。
 - **`.bashrc`**: Bash shell 的配置文件。
 - **`.clangd`**: Clangd 语言服务器的配置文件（例如，用于忽略某些编译器参数）。
+- **`.icons/xiaokewei128px-pointer`**: KDE、GTK 等桌面应用使用的多尺寸自定义光标主题。
 - **`.vim/coc-settings.json`**: Vim 中 CoC (Conquer of Completion) 插件的设置。
 
 ### 位于配置目录 (`~/.config/`) 下的文件/目录
