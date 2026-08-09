@@ -3,19 +3,12 @@ function fish_greeting
 
     if isatty stdout; and test -r "$ciallo_image"
         set -l is_ghostty false
-        set -l through_tmux false
 
         if set -q TERM_PROGRAM; and test "$TERM_PROGRAM" = ghostty
             set is_ghostty true
-        else if set -q TMUX; and command -q tmux
-            if command tmux show-environment TERM_PROGRAM 2>/dev/null \
-                    | string match --quiet 'TERM_PROGRAM=ghostty'
-                set is_ghostty true
-                set through_tmux true
-            end
         end
 
-        if test "$is_ghostty" = true
+        if not set -q TMUX; and test "$is_ghostty" = true
             set -l cache_home "$HOME/.cache"
             if set -q XDG_CACHE_HOME; and test -n "$XDG_CACHE_HOME"
                 set cache_home "$XDG_CACHE_HOME"
@@ -41,45 +34,13 @@ function fish_greeting
                 set -l encoded_path (printf '%s' "$ciallo_png" | command base64 --wrap=0)
                 set -l image_columns 48
 
-                # Ghostty implements Kitty's graphics protocol. Supplying only
-                # the width lets Ghostty preserve the image's aspect ratio.
-                if test "$through_tmux" = true
-                    # tmux does not account for passthrough graphics in its
-                    # virtual cursor position. Work out the 1440x900 image's
-                    # exact cell height, keep Ghostty's cursor fixed, then move
-                    # tmux's cursor by that many real terminal lines below.
-                    set -l image_rows 15
-                    set -l cell_size (string split ':' -- \
-                        (command tmux display-message -p \
-                            '#{client_cell_width}:#{client_cell_height}' 2>/dev/null))
-
-                    if test (count $cell_size) -eq 2 \
-                            && string match --quiet --regex '^[1-9][0-9]*$' "$cell_size[1]" \
-                            && string match --quiet --regex '^[1-9][0-9]*$' "$cell_size[2]"
-                        set image_rows (math --scale=0 \
-                            "ceil($image_columns * $cell_size[1] * 5 / (8 * $cell_size[2]))")
-                    end
-
-                    # tmux passthrough DCS; escape bytes inside it are doubled.
-                    printf '\ePtmux;\e\e_Ga=T,f=100,t=f,c=%s,r=%s,C=1,q=2;%s' \
-                        "$image_columns" "$image_rows" "$encoded_path"
-                    printf '\e\e\\'
-                    printf '\e\\'
-
-                    for unused in (seq "$image_rows")
-                        printf '\r\n'
-                    end
-                else
-                    printf '\e_Ga=T,f=100,t=f,c=%s,q=2;%s' \
-                        "$image_columns" "$encoded_path"
-                    printf '\e\\'
-
-                    # Direct Ghostty knows the placement height itself; move
-                    # one more line so text starts outside the final image row.
-                    printf '\r\n'
-                end
+                # Ghostty 直连时使用 Kitty 图片协议，并让终端保持图片宽高比。
+                printf '\e_Ga=T,f=100,t=f,c=%s,q=2;%s' \
+                    "$image_columns" "$encoded_path"
+                printf '\e\\'
+                printf '\r\n'
             end
-        else if command -q chafa
+        else if not set -q TMUX; and command -q chafa
             chafa \
                 --format symbols \
                 --colors full \
