@@ -1,20 +1,20 @@
-[services.xi-x]
-type = "sftp"
+[sftp.xi-x]
+kind = "sftp"
 host = "xiang233.top"
 user = "xiang"
 port = 22
-identity_file = "/home/xiang/.ssh/id_ed25519"
+key_file = "/home/xiang/.ssh/id_ed25519"
 
-[services.xi-p]
-type = "sftp"
+[sftp.xi-p]
+kind = "sftp"
 host = "xiang233.top"
 user = "podman"
 port = 22
-identity_file = "/home/xiang/.ssh/id_ed25519"
+key_file = "/home/xiang/.ssh/id_ed25519"
 
-[services.xi-w]
-type = "sftp"
+[sftp.xi-w]
+kind = "sftp"
 host = "xiang233.top"
 user = "xiang"
 port = 22022
-identity_file = "/home/xiang/.ssh/id_ed25519"
+key_file = "/home/xiang/.ssh/id_ed25519"
