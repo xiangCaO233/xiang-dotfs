@@ -262,18 +262,20 @@ def decode_cur(data: bytes, temporary_file: Path) -> tuple[int, int, int, int, b
 def scale_rgba_nearest(
     rgba: bytes, source_width: int, source_height: int, target_size: int
 ) -> bytes:
-    """使用最近邻缩放保持像素画边缘，并转换为 Xcursor ARGB。"""
+    """使用保留首尾像素的最近邻缩放，并转换为 Xcursor ARGB。"""
     output = bytearray(target_size * target_size * 4)
     output_offset = 0
     for target_y in range(target_size):
-        source_y = min(
-            source_height - 1,
-            ((2 * target_y + 1) * source_height) // (2 * target_size),
+        source_y = scale_coordinate(
+            target_y,
+            target_size,
+            source_height,
         )
         for target_x in range(target_size):
-            source_x = min(
-                source_width - 1,
-                ((2 * target_x + 1) * source_width) // (2 * target_size),
+            source_x = scale_coordinate(
+                target_x,
+                target_size,
+                source_width,
             )
             source_offset = (source_y * source_width + source_x) * 4
             red, green, blue, alpha = rgba[source_offset : source_offset + 4]
@@ -289,10 +291,18 @@ def scale_rgba_nearest(
     return bytes(output)
 
 
+def scale_coordinate(value: int, from_extent: int, to_extent: int) -> int:
+    """将坐标映射到目标范围，并确保两个端点都不会被跳过。"""
+    if from_extent <= 1 or to_extent <= 1:
+        return 0
+    numerator = value * (to_extent - 1)
+    denominator = from_extent - 1
+    return (numerator * 2 + denominator) // (denominator * 2)
+
+
 def scale_hotspot(value: int, source_size: int, target_size: int) -> int:
-    """按比例缩放热点并限制到图像范围内。"""
-    scaled = (value * target_size * 2 + source_size) // (source_size * 2)
-    return min(target_size - 1, scaled)
+    """使用与像素相同的端点映射缩放热点。"""
+    return scale_coordinate(value, source_size, target_size)
 
 
 def make_image_chunk(
