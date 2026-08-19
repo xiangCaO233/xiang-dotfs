@@ -15,7 +15,7 @@
 - **`.bashrc`**: Bash shell 的配置文件。
 - **`.clangd`**: Clangd 语言服务器的配置文件（例如，用于忽略某些编译器参数）。
 - **`.icons/xiaokewei128px-pointer`**: KDE、GTK 等桌面应用使用的多尺寸自定义光标主题。
-- **`.icons/build-mukewei-pointer.py`**: 从个人持有的 `μ可畏-鼠标指针.zip` 在本地生成多尺寸 Xcursor 主题。原包禁止二次传播，因此生成的 `.icons/mukewei-pointer` 不纳入公开仓库。
+- **`.icons/build-mukewei-pointer.py`**: 从个人持有的 `μ可畏-鼠标指针.zip` 按原生 32×32 像素网格生成多尺寸 Xcursor 主题。原包禁止二次传播，因此生成的 `.icons/mukewei-pointer` 不纳入公开仓库。
 - **`.vim/coc-settings.json`**: Vim 中 CoC (Conquer of Completion) 插件的设置。
 
 ### 位于配置目录 (`~/.config/`) 下的文件/目录

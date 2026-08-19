@@ -17,7 +17,8 @@ import zipfile
 
 IMAGE_TYPE = 0xFFFD0002
 IMAGE_VERSION = 1
-DEFAULT_SIZES = (24, 32, 36, 48, 64, 72, 96, 128)
+NATIVE_LOGICAL_SIZE = 32
+DEFAULT_SIZES = (32, 64, 96, 128)
 
 # 只转换 Windows 安装清单实际启用的版本；带数字的文件是手动替换版本。
 CURSOR_SOURCES = {
@@ -262,20 +263,18 @@ def decode_cur(data: bytes, temporary_file: Path) -> tuple[int, int, int, int, b
 def scale_rgba_nearest(
     rgba: bytes, source_width: int, source_height: int, target_size: int
 ) -> bytes:
-    """使用保留首尾像素的最近邻缩放，并转换为 Xcursor ARGB。"""
+    """按原生像素网格最近邻缩放，并转换为 Xcursor ARGB。"""
     output = bytearray(target_size * target_size * 4)
     output_offset = 0
     for target_y in range(target_size):
-        source_y = scale_coordinate(
-            target_y,
-            target_size,
-            source_height,
+        source_y = min(
+            source_height - 1,
+            ((2 * target_y + 1) * source_height) // (2 * target_size),
         )
         for target_x in range(target_size):
-            source_x = scale_coordinate(
-                target_x,
-                target_size,
-                source_width,
+            source_x = min(
+                source_width - 1,
+                ((2 * target_x + 1) * source_width) // (2 * target_size),
             )
             source_offset = (source_y * source_width + source_x) * 4
             red, green, blue, alpha = rgba[source_offset : source_offset + 4]
@@ -291,18 +290,9 @@ def scale_rgba_nearest(
     return bytes(output)
 
 
-def scale_coordinate(value: int, from_extent: int, to_extent: int) -> int:
-    """将坐标映射到目标范围，并确保两个端点都不会被跳过。"""
-    if from_extent <= 1 or to_extent <= 1:
-        return 0
-    numerator = value * (to_extent - 1)
-    denominator = from_extent - 1
-    return (numerator * 2 + denominator) // (denominator * 2)
-
-
 def scale_hotspot(value: int, source_size: int, target_size: int) -> int:
-    """使用与像素相同的端点映射缩放热点。"""
-    return scale_coordinate(value, source_size, target_size)
+    """将原图热点映射到对应的原生像素块。"""
+    return min(target_size - 1, value * target_size // source_size)
 
 
 def make_image_chunk(
@@ -444,7 +434,7 @@ def parse_arguments() -> argparse.Namespace:
         type=int,
         nargs="+",
         default=DEFAULT_SIZES,
-        help="生成尺寸，默认：24 32 36 48 64 72 96 128",
+        help="生成尺寸，默认：32 64 96 128",
     )
     parser.add_argument(
         "--force", action="store_true", help="确认删除并重建已存在的输出目录"
@@ -460,8 +450,13 @@ def main() -> None:
     sizes = tuple(sorted(set(arguments.sizes)))
     if not archive.is_file():
         raise FileNotFoundError(f"找不到压缩包：{archive}")
-    if not sizes or any(size < 8 or size > 512 for size in sizes):
-        raise ValueError("尺寸必须位于 8 到 512 之间")
+    if not sizes or any(
+        size < NATIVE_LOGICAL_SIZE
+        or size > 512
+        or size % NATIVE_LOGICAL_SIZE != 0
+        for size in sizes
+    ):
+        raise ValueError("尺寸必须是 32 到 512 之间的 32 整数倍")
     build_theme(archive, output, sizes, arguments.force)
 
 
