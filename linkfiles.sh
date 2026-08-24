@@ -42,6 +42,8 @@ links=(
     ".bashrc                     $USER_HOME/.bashrc"
     ".clangd                     $USER_HOME/.clangd"
     ".icons/xiaokewei128px-pointer $USER_HOME/.icons/xiaokewei128px-pointer"
+    ".icons/xiaokewei-pointer    $USER_HOME/.icons/xiaokewei-pointer"
+    ".icons/mukewei-pointer      $USER_HOME/.icons/mukewei-pointer"
     ".vim/coc-settings.json      $USER_HOME/.vim/coc-settings.json" # 文件，其父目录 .vim 已确保存在
 
     # --- 位于 $HOME/.config 下的目录 ---
